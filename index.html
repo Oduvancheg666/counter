@@ -1,98 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	
-	<div id="timer_inp">60</div>
-	
-	<div class="round50 round-style round-style1"><p>50/50</p></div>
-	<div class="round round-style round-style2"><p>МНЕНИЕ ЗАЛА</p></div>
-	<div class="round round-style round-style3"><p>ЗВОНОК ДРУГУ</p></div>
-	<div class="roundEnd round-style round-style4"><p>ЗАКОНЧИТЬ ИГРУ</p></div>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Counter</title>
+ 
+		<script>
+		function addition() {
+			var OCW = parseInt(document.getElementById('OCW').innerHTML);//old cold water
+			var NCW = parseInt(document.getElementById('NCW').value);// new cold water
+ 			var PCW = 47.7; // price cold water
+			var DCW = NCW - OCW; // difference old and new cold water
+			var TCW = DCW * PCW; // total cold water
+ 			document.getElementById('OCW').innerHTML = NCW;
 
+			var OHW = parseInt(document.getElementById('OHW').innerHTML); //old hot water
+			var NHW = parseInt(document.getElementById('NHW').value); // new hot water
+ 			var PHW = 179.49; // price hot water
+			var DHW = NHW - OHW; // difference old and new hot water
+			var THW = DHW * PHW; // total hot water
+			document.getElementById('OHW').innerHTML = NHW; 
 
-	<h3 class="question"></h3>
-	<input class="answer-input" type="radio" name="answer" id="answer1" value="0">
-	<label for="answer1" class="answer-label"></label><br>
-	<input class="answer-input" type="radio" name="answer" id="answer2" value="1">
-	<label for="answer2" class="answer-label"></label><br>
-	<input class="answer-input" type="radio" name="answer" id="answer3" value="2">
-	<label for="answer3" class="answer-label"></label><br>
-	<input class="answer-input" type="radio" name="answer" id="answer4" value="3">
-	<label for="answer4" class="answer-label"></label><br>
+			var ODL = parseInt(document.getElementById('ODL').innerHTML); //old day light
+			var NDL = parseInt(document.getElementById('NDL').value); // new day light
+ 			var PDL = 4.61; // price day light
+			var DDL = NDL - ODL; // difference old and new day light
+			var TDL = DDL * PDL; // total day light
+			document.getElementById('ODL').innerHTML = NDL; 
 
-	<input type="button" class="btn" value="ПОДТВЕРДИТЬ">
+			var ONL = parseInt(document.getElementById('ONL').innerHTML); //old night light
+			var NNL = parseInt(document.getElementById('NNL').value); // new night light
+ 			var PNL = 1.76; // price night light
+			var DNL = NNL - ONL; // difference old and new night light
+			var TNL = DNL * PNL; // total night light
+			document.getElementById('ONL').innerHTML = NNL; 
 
-	<table>
-	  <tr class="tr">
-	    <td>15</td><td>1 000 000</td>
-	  </tr>
-	  <tr>
-	    <td>14</td><td>500 000</td>
-	  </tr>
-	  <tr>
-	    <td>13</td><td>250 000</td>
-	  </tr>
-	  <tr>
-	    <td>12</td><td>125 000</td>
-	  </tr>
-	  <tr>
-	    <td>11</td><td>64 000</td>
-	  </tr>
-	  <tr class="tr">
-	    <td>10</td><td>32 000</td>
-	  </tr>
-	  <tr>
-	    <td>9</td><td>16 000</td>
-	  </tr>
-	  <tr>
-	    <td>8</td><td>8 000</td>
-	  </tr>
-	  <tr>
-	    <td>7</td><td>4 000</td>
-	  </tr>
-	  <tr>
-	    <td>6</td><td>2 000</td>
-	  </tr>
-	  <tr class="tr">
-	    <td>5</td><td>1 000</td>
-	  </tr>
-	  <tr>
-	    <td>4</td><td>500</td>
-	  </tr>
-	  <tr>
-	    <td>3</td><td>300</td>
-	  </tr>
-	  <tr>
-	    <td>2</td><td>200</td>
-	  </tr>	        	  	  
-	  <tr>
-	    <td>1</td><td>100</td>
-	  </tr>
-	</table>
+			var CNV = DHW + DCW;
+			var TCN = CNV * 32.53;
+			document.getElementById('CNV').innerHTML = CNV; 
 
-	<div class="start">
-	<form action="">
-		<input type="text" id="user" name="user" required placeholder="Введите Ваше имя">
-		<input type="submit" id="start">
-	</form>
-	</div>
+			var ttl = TCW + THW + TDL + TNL + TCN;
+			document.getElementById('result').innerHTML = ttl.toFixed(2);
 
-	<div class="end">
-		<h1>ИГРА ОКОНЧЕНА</h1>
-		<h3 class="showResult">ВЫ ПРОИГРАЛИ </h3>
-	</div>
+			document.getElementById('Date').innerHTML = new Date();
+ 
+   			
 
-	<div class="reStart">
-		<h1 class="hellow"></h1>
-		<button id="startGame">НАЧАТЬ ИГРУ</button>
-	</div>
+			
+		}
+		</script>
+	</head>
+	<body>
+		<form >	
+			
+			<p><div>ХВ (тариф 47.7р)</div>
+			<span>Старые показатели счетчика ХВ = </span><span id="OCW">294</span> <br>
+			<span>Новые показатели счетчика ХВ = <input id="NCW" type="text" value=" "></span></p>
+			<p>
+			<div>ГВ (тариф 179.49р)</div>
+			<span>Старые показатели счетчика ГВ = </span><span id="OHW">154</span> <br>
+			<span>Новые показатели счетчика ХВ = <input id="NHW" type="text" value=" "></span></p>
+			<p> 
+			<div>Свет день (тариф 4.61р)</div>
+			<span>Старые показатели счетчика СД = </span><span id="ODL">6111</span> <br>
+			<span>Новые показатели счетчика СД = <input id="NDL" type="text" value=" "></span></p>
+			<p>
+			<div>Свет ночь (тариф 1.76р)</div>
+			<span>Старые показатели счетчика СН = </span><span id="ONL">2576</span> <br>
+			<span>Новые показатели счетчика СН = <input id="NNL" type="text" value="0"><br> </span> </p>
+			
+			<span>Водоотвод (тариф 32.53р) = </span><span id="CNV"></span> </p>
+		</form>
+			<input type="button" value="Посчитать" onclick="addition();"> <span id="result"></span>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="script.js"></script>
-</body>
+			<p id="Date"> Sat Sep 12 2020 14:20:45 GMT+0300 (Москва, стандартное время)</p>
+
+	</body>
 </html>
